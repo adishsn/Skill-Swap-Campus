@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1791634125871,
+    "user_name": "Dr. Arthur Vance",
+    "role": "admin",
+    "action": "Logged into ADMIN Dashboard",
+    "timestamp": "2026-10-10 12:08"
+  },
+  {
+    "id": 1791634110946,
+    "user_name": "Alex Sharma",
+    "role": "student",
+    "action": "Logged into STUDENT Dashboard",
+    "timestamp": "2026-10-10 12:08"
+  },
+  {
+    "id": 1791634009975,
+    "user_name": "Prof. Sarah Johnson",
+    "role": "teacher",
+    "action": "Logged into TEACHER Dashboard",
+    "timestamp": "2026-10-10 12:06"
+  },
+  {
+    "id": 1791633980405,
+    "user_name": "Alex Sharma",
+    "role": "student",
+    "action": "Logged into STUDENT Dashboard",
+    "timestamp": "2026-10-10 12:06"
+  },
+  {
+    "id": 1791633970155,
+    "user_name": "Dr. Arthur Vance",
+    "role": "admin",
+    "action": "Logged into ADMIN Dashboard",
+    "timestamp": "2026-10-10 12:06"
+  },
+  {
+    "id": 1791633967626,
+    "user_name": "Prof. Sarah Johnson",
+    "role": "teacher",
+    "action": "Logged into TEACHER Dashboard",
+    "timestamp": "2026-10-10 12:06"
+  },
+  {
+    "id": 1,
+    "user_name": "Prof. Sarah Johnson",
+    "role": "teacher",
+    "action": "Uploaded lecture notes: Data Structures",
+    "timestamp": "2026-10-10 09:15"
+  },
+  {
+    "id": 2,
+    "user_name": "Alex Sharma",
+    "role": "student",
+    "action": "Downloaded Operating Systems PDF",
+    "timestamp": "2026-10-10 10:40"
+  },
+  {
+    "id": 3,
+    "user_name": "Dr. Arthur Vance",
+    "role": "admin",
+    "action": "Approved Faculty Verification for Dr. David Chen",
+    "timestamp": "2026-10-10 11:20"
+  }
+]

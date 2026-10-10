@@ -1,0 +1,10 @@
+[SkillSwap Campus Slide Presentation]
+Title: Database Management Systems - Normalization & SQL
+Uploader: Prof. Sarah Johnson
+Semester: 4 | Department: Information Technology
+
+Slide 1: Relational Schema & Functional Dependencies
+Slide 2: First, Second, Third Normal Forms (1NF, 2NF, 3NF)
+Slide 3: Boyce-Codd Normal Form (BCNF) Decomposition
+Slide 4: ACID Transactions & 2-Phase Locking Protocols
+Slide 5: Complex SQL Joins & Query Optimization Strategies

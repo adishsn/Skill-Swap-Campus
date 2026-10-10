@@ -1,0 +1,47 @@
+%PDF-1.4
+% SkillSwap Campus Verified Study Material
+1 0 obj
+<< /Title (Data Structures & Algorithms Comprehensive Notes)
+   /Author (Prof. Sarah Johnson)
+   /Subject (Computer Science Sem 3)
+   /Keywords (DSA, Trees, Graphs, Sorting, Dynamic Programming)
+>>
+endobj
+2 0 obj
+<< /Type /Catalog /Pages 3 0 R >>
+endobj
+3 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 612 792] /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 260 >>
+stream
+BT
+/F1 18 Tf
+50 720 Td (SkillSwap Campus - Computer Science & Engineering) Tj
+/F1 14 Tf
+0 -30 Td (Data Structures & Algorithms: Comprehensive Notes) Tj
+/F1 11 Tf
+0 -24 Td (Author: Prof. Sarah Johnson | Verified Faculty) Tj
+0 -20 Td (Semester: 3 | Subject: CS301) Tj
+0 -30 Td (1. Time Complexity Analysis: Big-O, Big-Omega, Big-Theta) Tj
+0 -20 Td (2. Binary Search Trees & AVL Rotations) Tj
+0 -20 Td (3. Graph Traversals: BFS, DFS, Dijkstra Shortest Path) Tj
+0 -20 Td (4. Dynamic Programming: Optimal Substructure & Memoization) Tj
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000010 00000 n 
+0000000180 00000 n 
+0000000235 00000 n 
+0000000300 00000 n 
+0000000400 00000 n 
+trailer
+<< /Size 6 /Root 2 0 R >>
+%%EOF

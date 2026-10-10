@@ -1,0 +1,576 @@
+/* ==========================================================================
+   SkillSwap - Premium 3D Graduation Cap Intro & Cinematic Reveal
+   Color Palette: Deep Midnight Navy (#071426), Soft Metallic Gold (#E8B85B),
+                  Electric Blue (#4DA8FF), White & Soft Blue-Gray
+   Scope: Exclusively scoped to #skillswapIntroOverlay and .intro-* classes
+   ========================================================================== */
+
+/* Fullscreen Overlay Container */
+#skillswapIntroOverlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  background: radial-gradient(circle at 50% 45%, #0d223f 0%, #071426 60%, #030a14 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  user-select: none;
+  opacity: 1;
+  transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  perspective: 1200px;
+}
+
+#skillswapIntroOverlay.intro-fadeout {
+  opacity: 0;
+  pointer-events: none !important;
+}
+
+#skillswapIntroOverlay.intro-hidden {
+  display: none !important;
+}
+
+/* Subtle Educational Digital Grid Background */
+.intro-bg-grid {
+  position: absolute;
+  inset: -100px;
+  background-image: 
+    linear-gradient(rgba(77, 168, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(77, 168, 255, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 80%);
+  pointer-events: none;
+  animation: introGridFloat 20s linear infinite;
+}
+
+@keyframes introGridFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(48px); }
+}
+
+/* Restrained Floating Particles */
+.intro-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.35;
+  filter: blur(0.5px);
+}
+
+.intro-particle-1 {
+  width: 4px; height: 4px; top: 22%; left: 28%;
+  background: #E8B85B;
+  box-shadow: 0 0 10px #E8B85B;
+  animation: particleFloat 4s ease-in-out infinite alternate;
+}
+
+.intro-particle-2 {
+  width: 5px; height: 5px; top: 68%; right: 26%;
+  background: #4DA8FF;
+  box-shadow: 0 0 12px #4DA8FF;
+  animation: particleFloat 5s ease-in-out infinite alternate 1s;
+}
+
+.intro-particle-3 {
+  width: 3px; height: 3px; top: 35%; right: 22%;
+  background: #E8B85B;
+  animation: particleFloat 3.5s ease-in-out infinite alternate 0.5s;
+}
+
+.intro-particle-4 {
+  width: 4px; height: 4px; bottom: 25%; left: 24%;
+  background: #4DA8FF;
+  animation: particleFloat 4.5s ease-in-out infinite alternate 1.5s;
+}
+
+@keyframes particleFloat {
+  0% { transform: translateY(0) translateX(0); opacity: 0.2; }
+  100% { transform: translateY(-16px) translateX(8px); opacity: 0.6; }
+}
+
+/* Radial Golden & Blue Aura Behind Cap */
+.intro-glow-aura {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232, 184, 91, 0.18) 0%, rgba(77, 168, 255, 0.08) 45%, transparent 70%);
+  pointer-events: none;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+  filter: blur(20px);
+}
+
+.intro-glow-aura.glow-active {
+  transform: translate(-50%, -50%) scale(1.6);
+  background: radial-gradient(circle, rgba(232, 184, 91, 0.35) 0%, rgba(77, 168, 255, 0.22) 40%, transparent 70%);
+}
+
+/* Subtle Floor Shadow Beneath Cap */
+.cap3d-floor-shadow {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 38px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(3, 10, 20, 0.7) 0%, rgba(3, 10, 20, 0.2) 55%, transparent 75%);
+  filter: blur(6px);
+  pointer-events: none;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* Skip Intro Button */
+.intro-skip-btn {
+  position: absolute;
+  top: 22px;
+  right: 24px;
+  z-index: 1000000;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #cbd5e1;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  backdrop-filter: blur(4px);
+}
+
+.intro-skip-btn:hover {
+  background: rgba(232, 184, 91, 0.2);
+  border-color: #E8B85B;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   3D Realistic Graduation Cap Geometry
+   ========================================================================== */
+.cap3d-stage {
+  width: 320px;
+  height: 270px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  margin-top: -20px;
+}
+
+/* Main Cap 3D Gimbal / Rotator */
+.cap3d-gimbal {
+  width: 240px;
+  height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(16deg) rotateY(0deg);
+  transition: transform 0.05s linear;
+}
+
+/* Inner Light Chamber / Knowledge Core (revealed on open) */
+.cap3d-inner-chamber {
+  position: absolute;
+  top: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff7d6 0%, #E8B85B 45%, #4DA8FF 80%, transparent 100%);
+  filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  transform-origin: center;
+  transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 35px #E8B85B, 0 0 65px rgba(77, 168, 255, 0.6);
+}
+
+.cap3d-inner-chamber.burst-active {
+  opacity: 1;
+  transform: translateX(-50%) scale(1.8);
+}
+
+/* Lower Cap Body (Skull Cap / Headband Base) */
+.cap3d-body-base {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 130px;
+  height: 72px;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Realistic Curved Fabric Headband with Gold Trim */
+.cap3d-skull-fabric {
+  position: absolute;
+  inset: 0;
+  border-radius: 50% 50% 45% 45% / 35% 35% 65% 65%;
+  background: linear-gradient(175deg, #182234 0%, #0d1522 55%, #050b13 100%);
+  box-shadow: 
+    inset 0 2px 4px rgba(255, 255, 255, 0.15),
+    inset 0 -4px 8px rgba(0, 0, 0, 0.8),
+    0 8px 18px rgba(0, 0, 0, 0.5);
+  border-bottom: 2.5px solid #E8B85B;
+  overflow: hidden;
+}
+
+/* Metallic gold rim accent around headband */
+.cap3d-skull-fabric::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #b8862d 0%, #E8B85B 40%, #ffdf9e 60%, #996e21 100%);
+  box-shadow: 0 -1px 3px rgba(232, 184, 91, 0.3);
+}
+
+/* Upper Mortarboard Assembly (Square Top + Bevel Edges) */
+.cap3d-mortarboard-assembly {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  transition: transform 0.7s cubic-bezier(0.2, 0.9, 0.25, 1);
+}
+
+/* Square Mortarboard Top Face (Diamond Perspective) */
+.cap3d-board-top {
+  position: absolute;
+  width: 165px;
+  height: 165px;
+  left: 17.5px;
+  top: 17.5px;
+  transform: rotateX(62deg) rotateZ(45deg);
+  transform-style: preserve-3d;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #1e2c44 0%, #111a29 45%, #090e17 100%);
+  box-shadow: 
+    0 0 0 1px rgba(232, 184, 91, 0.3),
+    inset 0 0 16px rgba(255, 255, 255, 0.08),
+    0 12px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* Metallic Gold Bevel Piping on Mortarboard Edges */
+.cap3d-board-top::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border-radius: 2px;
+  border: 1px solid rgba(232, 184, 91, 0.45);
+  pointer-events: none;
+  box-shadow: inset 0 0 4px rgba(232, 184, 91, 0.2);
+}
+
+/* Subtle Thickness/Depth Layer Beneath Top */
+.cap3d-board-thickness {
+  position: absolute;
+  width: 165px;
+  height: 165px;
+  left: 17.5px;
+  top: 23px;
+  transform: rotateX(62deg) rotateZ(45deg);
+  border-radius: 4px;
+  background: #060a12;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+}
+
+/* Central Gold Button (Apex Stud) */
+.cap3d-center-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff1c2 0%, #E8B85B 45%, #b48325 85%, #6e4d0d 100%);
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.5),
+    0 0 8px rgba(232, 184, 91, 0.5);
+  z-index: 10;
+}
+
+/* ==========================================================================
+   Realistic Hanging Tassel with Natural Physics
+   ========================================================================== */
+.cap3d-tassel-rig {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1px;
+  height: 1px;
+  transform-style: preserve-3d;
+  z-index: 12;
+  pointer-events: none;
+}
+
+/* Gold Cord Draping Across Mortarboard Face to Edge */
+.cap3d-tassel-cord-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 84px;
+  height: 2.5px;
+  transform-origin: 0 50%;
+  transform: rotate(38deg);
+  background: linear-gradient(90deg, #E8B85B 0%, #ffd98a 50%, #c4922b 100%);
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Hanging Tassel Assembly Over Corner */
+.cap3d-tassel-hanging {
+  position: absolute;
+  top: 52px;
+  left: 66px;
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  animation: tasselNaturalSway 2.4s ease-in-out infinite alternate;
+}
+
+/* Vertical Gold String */
+.cap3d-tassel-string {
+  width: 2px;
+  height: 48px;
+  background: linear-gradient(180deg, #ffd98a 0%, #E8B85B 60%, #a87b1e 100%);
+  margin: 0 auto;
+  border-radius: 1px;
+}
+
+/* Tassel Metallic Band / Collar */
+.cap3d-tassel-collar {
+  width: 8px;
+  height: 6px;
+  background: linear-gradient(90deg, #8a6012 0%, #ffd98a 50%, #996e1b 100%);
+  border-radius: 2px;
+  margin: 0 auto;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* Tassel Fringe / Brush */
+.cap3d-tassel-fringe {
+  width: 10px;
+  height: 26px;
+  background: linear-gradient(180deg, #E8B85B 0%, #d89f36 50%, #8f6516 100%);
+  border-radius: 1px 1px 3px 3px;
+  margin: 0 auto;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+.cap3d-tassel-fringe::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(90deg, transparent 0px, transparent 1.5px, rgba(0,0,0,0.18) 1.5px, rgba(0,0,0,0.18) 2.5px);
+}
+
+@keyframes tasselNaturalSway {
+  0% { transform: rotateZ(-4deg) rotateX(2deg); }
+  100% { transform: rotateZ(6deg) rotateX(-3deg); }
+}
+
+/* Dynamic Centrifugal Sway During Cap 3D Turn */
+.cap3d-tassel-hanging.sway-active {
+  animation: tasselSpinSwing 0.8s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+@keyframes tasselSpinSwing {
+  0% { transform: rotateZ(2deg); }
+  35% { transform: rotateZ(22deg) rotateY(15deg); }
+  70% { transform: rotateZ(-12deg) rotateY(-10deg); }
+  100% { transform: rotateZ(3deg); }
+}
+
+/* ==========================================================================
+   Intro Branding Typography Below Cap
+   ========================================================================== */
+.intro-brand-block {
+  margin-top: 16px;
+  text-align: center;
+  position: relative;
+  z-index: 20;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
+}
+
+.intro-brand-block.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.intro-brand-title {
+  font-size: 2.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.intro-brand-gold {
+  background: linear-gradient(120deg, #ffffff 0%, #E8B85B 45%, #ffdca0 75%, #ffffff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 3s ease-in-out infinite;
+}
+
+@keyframes goldShimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+.intro-brand-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: rgba(77, 168, 255, 0.15);
+  color: #4DA8FF;
+  border: 1px solid rgba(77, 168, 255, 0.35);
+  padding: 2px 7px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  vertical-align: middle;
+}
+
+.intro-brand-tagline {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.intro-brand-tagline span {
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Cinematic Aperture Mask / Reveal Transition (Stage 4)
+   ========================================================================== */
+.intro-reveal-aperture {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff 10%, #E8B85B 30%, #4DA8FF 65%, transparent 75%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 999998;
+  filter: blur(4px);
+}
+
+.intro-reveal-aperture.expand-active {
+  animation: apertureExpand 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes apertureExpand {
+  0% {
+    width: 20px;
+    height: 20px;
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+    filter: blur(12px);
+  }
+  100% {
+    width: 280vmax;
+    height: 280vmax;
+    opacity: 0;
+    filter: blur(0px);
+  }
+}
+
+/* Cap Opened State Classes (Applied in Stage 3) */
+.cap3d-opened .cap3d-mortarboard-assembly {
+  transform: translateX(-50%) translateY(-68px) rotateX(-32deg) rotateY(12deg) scale(1.04);
+}
+
+.cap3d-opened .cap3d-body-base {
+  transform: translateX(-50%) translateY(22px) scale(0.97);
+}
+
+.cap3d-opened .cap3d-floor-shadow {
+  transform: translateX(-50%) scale(1.25);
+  opacity: 0.4;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 768px) {
+  .cap3d-stage {
+    transform: scale(0.85);
+    margin-top: -30px;
+  }
+  .intro-brand-title {
+    font-size: 1.8rem;
+  }
+  .intro-brand-tagline {
+    font-size: 0.85rem;
+    padding: 0 16px;
+  }
+  .intro-skip-btn {
+    top: 16px;
+    right: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cap3d-stage {
+    transform: scale(0.72);
+  }
+  .intro-brand-title {
+    font-size: 1.55rem;
+  }
+  .intro-brand-tagline {
+    font-size: 0.78rem;
+  }
+}
+
+/* ==========================================================================
+   Accessibility: prefers-reduced-motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  #skillswapIntroOverlay {
+    transition: opacity 0.2s ease !important;
+  }
+  .cap3d-gimbal, .cap3d-mortarboard-assembly, .cap3d-body-base, .cap3d-tassel-hanging {
+    transition: none !important;
+    animation: none !important;
+  }
+  .intro-reveal-aperture {
+    display: none !important;
+  }
+}

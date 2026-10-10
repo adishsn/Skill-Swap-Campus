@@ -1,0 +1,70 @@
+[
+  {
+    "id": "usr-student-1",
+    "name": "Alex Sharma",
+    "email": "student@skillswap.edu",
+    "password": "password123",
+    "role": "student",
+    "department": "Computer Science & Engineering",
+    "semester": 4,
+    "avatar": "👨‍🎓",
+    "joined_date": "2025-08-10",
+    "status": "Active",
+    "verified": true
+  },
+  {
+    "id": "usr-student-2",
+    "name": "Pooja Patel",
+    "email": "pooja@skillswap.edu",
+    "password": "password123",
+    "role": "student",
+    "department": "Information Technology",
+    "semester": 6,
+    "avatar": "👩‍🎓",
+    "joined_date": "2025-08-12",
+    "status": "Active",
+    "verified": true
+  },
+  {
+    "id": "usr-teacher-1",
+    "name": "Prof. Sarah Johnson",
+    "email": "teacher@skillswap.edu",
+    "password": "password123",
+    "role": "teacher",
+    "department": "Computer Science & Engineering",
+    "semester": null,
+    "avatar": "👨‍🏫",
+    "joined_date": "2024-06-15",
+    "status": "Active",
+    "verified": true,
+    "title_or_role": "Associate Professor (CSE)"
+  },
+  {
+    "id": "usr-teacher-2",
+    "name": "Dr. David Chen",
+    "email": "david.chen@skillswap.edu",
+    "password": "password123",
+    "role": "teacher",
+    "department": "Computer Science & Engineering",
+    "semester": null,
+    "avatar": "👨‍🏫",
+    "joined_date": "2024-07-01",
+    "status": "Active",
+    "verified": true,
+    "title_or_role": "Head of AI Lab & Faculty"
+  },
+  {
+    "id": "usr-admin-1",
+    "name": "Dr. Arthur Vance",
+    "email": "admin@skillswap.edu",
+    "password": "admin123",
+    "role": "admin",
+    "department": "Academic Administration",
+    "semester": null,
+    "avatar": "🛡️",
+    "joined_date": "2024-01-10",
+    "status": "Active",
+    "verified": true,
+    "title_or_role": "Dean of Academic Affairs"
+  }
+]

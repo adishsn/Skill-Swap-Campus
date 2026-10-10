@@ -1,0 +1,28 @@
+%PDF-1.4
+1 0 obj
+<< /Title (DSP Formula Hand-Guide) /Author (Prof. K. Ramesh) >>
+endobj
+2 0 obj
+<< /Type /Catalog /Pages 3 0 R >>
+endobj
+3 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 612 792] /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 220 >>
+stream
+BT
+/F1 18 Tf
+50 720 Td (SkillSwap Campus - Digital Signal Processing) Tj
+/F1 12 Tf
+0 -30 Td (Author: Prof. K. Ramesh | ECE Department) Tj
+0 -20 Td (DFT, FFT Radix-2 Butterfly, IIR & FIR Filter Design) Tj
+ET
+endstream
+endobj
+trailer
+<< /Size 6 /Root 2 0 R >>
+%%EOF

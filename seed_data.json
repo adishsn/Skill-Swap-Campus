@@ -1,0 +1,251 @@
+[
+  {
+    "id": "note-1",
+    "title": "Data Structures & Algorithms Complete Master Notes",
+    "subject": "Data Structures & Algorithms",
+    "topic": "Arrays, Trees, Graphs, DP & Asymptotic Analysis",
+    "department": "Computer Science & Engineering",
+    "semester": 3,
+    "uploader_name": "Prof. Sarah Johnson",
+    "uploader_role": "Faculty (CSE Dept) • Verified",
+    "uploader_verified": true,
+    "file_type": "PDF",
+    "file_size": "4.2 MB",
+    "file_name": "dsa_comprehensive_notes.pdf",
+    "download_count": 342,
+    "view_count": 1280,
+    "bookmark_count": 89,
+    "upload_date": "2026-02-18",
+    "description": "Complete verified lecture notes covering asymptotic notations, linked lists, binary search trees, AVL trees, graph traversals (BFS/DFS), Dijkstra's algorithm, and dynamic programming with solved university exam questions.",
+    "rating": 4.9,
+    "tags": ["DSA", "Algorithms", "Trees", "Graphs", "Exam Prep"],
+    "preview_pages": [
+      {
+        "page": 1,
+        "title": "Unit 1: Foundations & Asymptotic Complexity",
+        "text": "1.1 Time & Space Complexity Analysis\nBig-O, Big-Omega, and Big-Theta notations mathematically quantify algorithmic performance.\n\nKey Recurrence Relations:\n- Master Theorem: T(n) = aT(n/b) + f(n)\n- Merge Sort: T(n) = 2T(n/2) + O(n) => O(n log n)\n- Binary Search: T(n) = T(n/2) + O(1) => O(log n)\n\nPractical rule of thumb: Always optimize nested loops from O(n^2) to O(n log n) or O(n) using Hash Tables where appropriate."
+      },
+      {
+        "page": 2,
+        "title": "Unit 2: Non-Linear Data Structures - Trees & Heaps",
+        "text": "2.1 Binary Search Trees (BST)\nA binary tree where left subtree nodes < root < right subtree nodes.\n- Inorder traversal always yields sorted sequence.\n- Average search time: O(log n), Worst case: O(n) (skewed tree).\n\n2.2 Self-Balancing: AVL Trees\n- Balance Factor = height(Left) - height(Right) in {-1, 0, 1}.\n- Rotations: LL, RR (single rotations); LR, RL (double rotations)."
+      },
+      {
+        "page": 3,
+        "title": "Unit 3: Graph Algorithms & Dynamic Programming",
+        "text": "3.1 Graph Traversals\n- BFS: Uses Queue data structure. Useful for shortest path in unweighted graphs.\n- DFS: Uses Stack / Recursion. Useful for topological sort and cycle detection.\n\n3.2 Dynamic Programming (DP)\n- Overlapping Subproblems & Optimal Substructure.\n- 0/1 Knapsack Problem memoization formula: DP[i][w] = max(DP[i-1][w], val[i-1] + DP[i-1][w-wt[i-1]])"
+      }
+    ]
+  },
+  {
+    "id": "note-2",
+    "title": "Operating Systems: Process Management & Virtual Memory",
+    "subject": "Operating Systems",
+    "topic": "CPU Scheduling, Synchronization, Deadlocks, Paging",
+    "department": "Computer Science & Engineering",
+    "semester": 4,
+    "uploader_name": "Prof. Alex Rivera",
+    "uploader_role": "Senior Lecturer (CSE) • Verified",
+    "uploader_verified": true,
+    "file_type": "PDF",
+    "file_size": "3.6 MB",
+    "file_name": "os_memory_scheduling.pdf",
+    "download_count": 294,
+    "view_count": 940,
+    "bookmark_count": 72,
+    "upload_date": "2026-02-24",
+    "description": "Exhaustive lecture guide detailing CPU Scheduling (FCFS, SJF, Round Robin), Banker's Deadlock Algorithm, Critical Section problem using Semaphores, and Virtual Memory Paging with Page Replacement algorithms.",
+    "rating": 4.8,
+    "tags": ["OS", "Processes", "Deadlock", "Virtual Memory", "Semaphores"],
+    "preview_pages": [
+      {
+        "page": 1,
+        "title": "Module 1: Process Scheduling & Context Switching",
+        "text": "1. Process Control Block (PCB): Holds Process State, Program Counter, CPU registers, memory management info.\n\n2. Scheduling Metrics:\n- Turnaround Time = Completion Time - Arrival Time\n- Waiting Time = Turnaround Time - Burst Time\n- Response Time = First CPU Allocation Time - Arrival Time\n\nRound Robin scheduling guarantees fairness with time quantum q."
+      },
+      {
+        "page": 2,
+        "title": "Module 2: Deadlocks & Banker's Algorithm",
+        "text": "Four Necessary Coffman Conditions for Deadlock:\n1. Mutual Exclusion\n2. Hold and Wait\n3. No Preemption\n4. Circular Wait\n\nDeadlock Avoidance: Banker's Algorithm uses Need[i][j] = Max[i][j] - Allocation[i][j] to find a Safe Sequence <P1, P3, P0...>."
+      }
+    ]
+  },
+  {
+    "id": "note-3",
+    "title": "Database Systems: Normalization, ER Modeling & SQL Cheatsheet",
+    "subject": "Database Management Systems",
+    "topic": "ER Diagrams, Relational Algebra, 1NF to BCNF, ACID Transactions",
+    "department": "Information Technology",
+    "semester": 4,
+    "uploader_name": "Prof. Sarah Johnson",
+    "uploader_role": "Faculty (IT & CSE) • Verified",
+    "uploader_verified": true,
+    "file_type": "PPT",
+    "file_size": "5.1 MB",
+    "file_name": "dbms_normalization_sql.ppt",
+    "download_count": 415,
+    "view_count": 1420,
+    "bookmark_count": 110,
+    "upload_date": "2026-03-01",
+    "description": "High-yield lecture slides covering Entity-Relationship models, relational schema reduction, Functional Dependencies, decomposition up to Boyce-Codd Normal Form, and transaction concurrency serializability.",
+    "rating": 4.9,
+    "tags": ["DBMS", "SQL", "Normalization", "BCNF", "Transactions"],
+    "preview_pages": [
+      {
+        "page": 1,
+        "title": "Slide 1: Normal Forms Hierarchy",
+        "text": "1NF: Atomic attributes, no repeating groups.\n2NF: In 1NF + No partial dependency (every non-prime attribute is fully functionally dependent on primary key).\n3NF: In 2NF + No transitive dependency (X -> Y, Y -> Z where Z is not prime).\nBCNF: For every non-trivial functional dependency X -> Y, X must be a super key."
+      },
+      {
+        "page": 2,
+        "title": "Slide 2: ACID Properties & Concurrency Control",
+        "text": "- Atomicity: All or nothing execution (WAL / Undo logs).\n- Consistency: Database moves from one valid state to another.\n- Isolation: Concurrent transactions do not interfere (2-Phase Locking).\n- Durability: Committed updates survive system crashes (Redo logs)."
+      }
+    ]
+  },
+  {
+    "id": "note-4",
+    "title": "Machine Learning Foundations & Supervised Algorithms",
+    "subject": "Machine Learning",
+    "topic": "Linear Regression, SVM, Decision Trees, Evaluation Metrics",
+    "department": "Computer Science & Engineering",
+    "semester": 6,
+    "uploader_name": "Dr. David Chen",
+    "uploader_role": "Associate Professor & AI Lab Head • Verified",
+    "uploader_verified": true,
+    "file_type": "PDF",
+    "file_size": "6.5 MB",
+    "file_name": "machine_learning_essentials.pdf",
+    "download_count": 520,
+    "view_count": 1890,
+    "bookmark_count": 145,
+    "upload_date": "2026-03-05",
+    "description": "Comprehensive semester study pack with mathematical derivations for Gradient Descent, Support Vector Machines hyperplanes, Random Forests, Cross-Validation, and ROC-AUC evaluation curves with Python examples.",
+    "rating": 5.0,
+    "tags": ["Machine Learning", "AI", "Python", "SVM", "Data Science"],
+    "preview_pages": [
+      {
+        "page": 1,
+        "title": "Chapter 1: Cost Function & Optimization",
+        "text": "Linear Regression Cost Function: J(theta) = (1/2m) * sum((h(x) - y)^2)\nGradient Descent update rule: theta_j := theta_j - alpha * (1/m) * sum((h(x) - y) * x_j)\n\nLearning Rate alpha considerations:\n- Too small: Slow convergence\n- Too large: Divergence / overshooting local minimum."
+      },
+      {
+        "page": 2,
+        "title": "Chapter 2: Classification & Decision Boundaries",
+        "text": "Logistic Regression Sigmoid: g(z) = 1 / (1 + e^-z)\nSupport Vector Machines:\nMaximize geometric margin: 2 / ||w|| subject to y_i * (w.x_i + b) >= 1.\nKernel Trick transforms non-linearly separable data into higher dimensional space."
+      }
+    ]
+  },
+  {
+    "id": "note-5",
+    "title": "Full-Stack Web Development & Modern REST Architecture",
+    "subject": "Web Technologies",
+    "topic": "HTTP Protocols, Express/Flask APIs, Async JS, Authentication",
+    "department": "Information Technology",
+    "semester": 5,
+    "uploader_name": "Prof. Vikram Rao",
+    "uploader_role": "Faculty (Web Tech) • Verified",
+    "uploader_verified": true,
+    "file_type": "PDF",
+    "file_size": "3.7 MB",
+    "file_name": "fullstack_web_dev_rest.pdf",
+    "download_count": 215,
+    "view_count": 780,
+    "bookmark_count": 64,
+    "upload_date": "2026-03-12",
+    "description": "Student handbook on REST API principles, stateless sessions, JWT tokens, CORS security, async/await patterns in client-side JavaScript, and responsive layout styling with CSS Flexbox & Grid.",
+    "rating": 4.7,
+    "tags": ["Web Dev", "REST API", "JavaScript", "Full Stack", "Sem 5"],
+    "preview_pages": [
+      {
+        "page": 1,
+        "title": "Part 1: RESTful API Design Standards",
+        "text": "Core HTTP Methods:\n- GET: Retrieve resource (Idempotent)\n- POST: Create new resource\n- PUT / PATCH: Update existing resource\n- DELETE: Remove resource (Idempotent)\n\nStatus Codes:\n200 OK | 201 Created | 400 Bad Request | 401 Unauthorized | 404 Not Found | 500 Internal Error"
+      }
+    ]
+  },
+  {
+    "id": "note-6",
+    "title": "Digital Signal Processing Formula Hand-Guide & Transforms",
+    "subject": "Digital Signal Processing",
+    "topic": "Z-Transform, DFT, FFT Radix-2, FIR/IIR Filter Design",
+    "department": "Electronics & Communication",
+    "semester": 5,
+    "uploader_name": "Prof. K. Ramesh",
+    "uploader_role": "Faculty (ECE Dept) • Verified",
+    "uploader_verified": true,
+    "file_type": "PDF",
+    "file_size": "3.1 MB",
+    "file_name": "dsp_formula_handguide.pdf",
+    "download_count": 198,
+    "view_count": 620,
+    "bookmark_count": 51,
+    "upload_date": "2026-03-15",
+    "description": "Compact exam preparation handbook containing all derivations for Discrete Fourier Transform, Radix-2 Decimation-In-Time FFT butterflies, Bilinear transformation, and Butterworth low-pass filter specs.",
+    "rating": 4.8,
+    "tags": ["DSP", "ECE", "FFT", "Filters", "Formulas"],
+    "preview_pages": [
+      {
+        "page": 1,
+        "title": "Section 1: DFT & Radix-2 Decimation in Time (DIT)",
+        "text": "N-Point DFT: X[k] = sum_{n=0}^{N-1} x[n] * W_N^{kn}, where W_N = e^{-j 2*pi / N}\nTwiddle factor symmetry: W_N^{k + N/2} = -W_N^k\nRadix-2 FFT reduces computational complexity from O(N^2) to O(N log2 N)."
+      }
+    ]
+  },
+  {
+    "id": "note-7",
+    "title": "Engineering Thermodynamics & Heat Transfer Key Derivations",
+    "subject": "Thermodynamics",
+    "topic": "First & Second Laws, Carnot Cycle, Heat Exchangers, Conduction",
+    "department": "Mechanical Engineering",
+    "semester": 3,
+    "uploader_name": "Prof. Rajesh Verma",
+    "uploader_role": "Head of Dept (Mech) • Verified",
+    "uploader_verified": true,
+    "file_type": "PDF",
+    "file_size": "4.8 MB",
+    "file_name": "thermodynamics_heat_transfer.pdf",
+    "download_count": 160,
+    "view_count": 510,
+    "bookmark_count": 43,
+    "upload_date": "2026-03-20",
+    "description": "Essential formulas, cycle thermal efficiencies (Otto, Diesel, Dual, Rankine), Clausius inequality, and 1D steady state Fourier conduction equation with composite wall examples.",
+    "rating": 4.7,
+    "tags": ["Thermodynamics", "Mechanical", "Heat Transfer", "Carnot", "Sem 3"],
+    "preview_pages": [
+      {
+        "page": 1,
+        "title": "Section 1: Thermodynamic Cycles & Second Law",
+        "text": "Carnot Efficiency: eta = 1 - (T_L / T_H)\nRankine Cycle work ratio and boiler heat absorption.\nFourier's Law of Conduction: q = -k * A * (dT/dx)\nConvective Heat Transfer: q = h * A * (T_s - T_inf)"
+      }
+    ]
+  },
+  {
+    "id": "note-8",
+    "title": "Structural Analysis & Reinforced Concrete Design (RCC)",
+    "subject": "Structural Engineering",
+    "topic": "Bending Moments, Shear Force, Limit State Method, Beam Design",
+    "department": "Civil Engineering",
+    "semester": 4,
+    "uploader_name": "Prof. Priya Nair",
+    "uploader_role": "Faculty (Civil Dept) • Verified",
+    "uploader_verified": true,
+    "file_type": "DOCX",
+    "file_size": "4.4 MB",
+    "file_name": "rcc_structural_design.docx",
+    "download_count": 135,
+    "view_count": 440,
+    "bookmark_count": 38,
+    "upload_date": "2026-03-22",
+    "description": "Calculations and guidelines for singly and doubly reinforced rectangular beams, slab design, cantilever bending moment diagrams, and Indian Standard (IS 456:2000) safety factors.",
+    "rating": 4.6,
+    "tags": ["Civil", "RCC", "Structures", "Beams", "IS 456"],
+    "preview_pages": [
+      {
+        "page": 1,
+        "title": "Chapter 1: Limit State Method Principles",
+        "text": "Characteristic compressive strength f_ck and yield strength f_y.\nPartial safety factor for concrete: gamma_c = 1.5, for steel: gamma_s = 1.15.\nMoment of resistance for singly reinforced balanced section: M_u,lim = 0.36 * f_ck * b * x_u,max * (d - 0.42 * x_u,max)."
+      }
+    ]
+  }
+]

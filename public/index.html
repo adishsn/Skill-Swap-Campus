@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillSwap Campus – Modern Peer Learning & Knowledge Exchange</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/intro.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- =====================================================================
+       PREMIUM 3D GRADUATION CAP INTRO OVERLAY & HOMEPAGE REVEAL
+       ===================================================================== -->
+  <div id="skillswapIntroOverlay">
+    <div class="intro-bg-grid"></div>
+    <div class="intro-particle intro-particle-1"></div>
+    <div class="intro-particle intro-particle-2"></div>
+    <div class="intro-particle intro-particle-3"></div>
+    <div class="intro-particle intro-particle-4"></div>
+    <div class="intro-glow-aura" id="introGlowAura"></div>
+
+    <button class="intro-skip-btn" onclick="SkillSwapIntro.skip()" title="Skip Opening Intro">
+      Skip Intro ➔
+    </button>
+
+    <div class="cap3d-stage" id="cap3dStage">
+      <div class="cap3d-floor-shadow"></div>
+      <div class="cap3d-gimbal" id="cap3dGimbal">
+        <div class="cap3d-inner-chamber" id="cap3dInnerChamber"></div>
+        <div class="cap3d-body-base">
+          <div class="cap3d-skull-fabric"></div>
+        </div>
+        <div class="cap3d-mortarboard-assembly" id="cap3dMortarboard">
+          <div class="cap3d-board-thickness"></div>
+          <div class="cap3d-board-top">
+            <div class="cap3d-center-button"></div>
+            <div class="cap3d-tassel-rig">
+              <div class="cap3d-tassel-cord-top"></div>
+              <div class="cap3d-tassel-hanging" id="cap3dTasselHanging">
+                <div class="cap3d-tassel-string"></div>
+                <div class="cap3d-tassel-collar"></div>
+                <div class="cap3d-tassel-fringe"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="intro-reveal-aperture" id="introRevealAperture"></div>
+
+    <div class="intro-brand-block" id="introBrandBlock">
+      <h2 class="intro-brand-title">
+        <span class="intro-brand-gold">SkillSwap</span>
+        <span class="intro-brand-badge">Campus</span>
+      </h2>
+      <p class="intro-brand-tagline">
+        Learn Together. <span>Share Skills.</span> Grow Together.
+      </p>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       Top Demonstration Walkthrough Bar (For Jury Demo & Presentation)
+       ===================================================================== -->
+  <div class="demo-banner">
+    <div class="demo-banner-content">
+      <div class="demo-banner-left">
+        <span class="demo-tag">🏆 Hack Fest'26</span>
+        <span style="font-weight:600; color:#E2E8F0;">Walkthrough Flow:</span>
+      </div>
+      <div class="demo-steps">
+        <button class="demo-step-btn" id="demoStepBtn1" onclick="activateDemoStep(1)">
+          <span>1️⃣ Teacher Studio</span>
+        </button>
+        <span class="demo-arrow">➔</span>
+        <button class="demo-step-btn" id="demoStepBtn2" onclick="activateDemoStep(2)">
+          <span>2️⃣ Student Library</span>
+        </button>
+        <span class="demo-arrow">➔</span>
+        <button class="demo-step-btn" id="demoStepBtn3" onclick="activateDemoStep(3)">
+          <span>3️⃣ Document Preview</span>
+        </button>
+        <span class="demo-arrow">|</span>
+        <button class="demo-step-btn" onclick="SkillSwapIntro.play()" title="Replay 3D Intro Animation">
+          <span>🎬 Replay Intro</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       2. Header, Logo & Navigation (Strict Top-Left Alignment, 34px SVG)
+       ===================================================================== -->
+  <header class="header">
+    <div class="header-container">
+      <!-- Brand Logo: Strictly Top-Left, Flex, SVG 32px-36px, Weight 700 tracked tight -->
+      <a class="brand" onclick="switchView(STATE.currentUser.role === 'admin' ? 'admin-dashboard' : (STATE.currentUser.role === 'teacher' ? 'teacher-studio' : 'student-library'))" title="SkillSwap Home">
+        <div class="brand-logo-icon">
+          <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="34" height="34" rx="10" fill="#4F46E5"/>
+            <path d="M17 9L7.5 14L17 19L26.5 14L17 9Z" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M11 16V21.5C11 23.5 13.68 25 17 25C20.32 25 23 23.5 23 21.5V16" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M26.5 14V20" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="brand-name">Skill<span class="brand-accent">Swap</span></span>
+      </a>
+
+      <!-- Role-Aware Dynamic Navigation Tabs -->
+      <nav>
+        <ul class="nav-links">
+          <!-- Student Tabs -->
+          <li class="nav-role-student">
+            <a class="nav-link active" data-view="student-library">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              Study Materials
+            </a>
+          </li>
+          <li class="nav-role-student">
+            <a class="nav-link" data-view="student-bookmarks">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+              Bookmarks
+              <span class="nav-badge" id="navBookmarkCount">2</span>
+            </a>
+          </li>
+          <li class="nav-role-student">
+            <a class="nav-link" data-view="student-skills">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              SkillSwap Hub
+            </a>
+          </li>
+
+          <!-- Teacher Tabs -->
+          <li class="nav-role-teacher" style="display:none;">
+            <a class="nav-link active" data-view="teacher-studio">
+              📤 Upload Studio
+            </a>
+          </li>
+          <li class="nav-role-teacher" style="display:none;">
+            <a class="nav-link" data-view="teacher-published">
+              📋 My Materials
+            </a>
+          </li>
+          <li class="nav-role-teacher" style="display:none;">
+            <a class="nav-link" data-view="student-library">
+              📚 Browse All Notes
+            </a>
+          </li>
+
+          <!-- Admin Tabs -->
+          <li class="nav-role-admin" style="display:none;">
+            <a class="nav-link active" data-view="admin-dashboard">
+              🛡️ Overview
+            </a>
+          </li>
+          <li class="nav-role-admin" style="display:none;">
+            <a class="nav-link" data-view="student-library">
+              📚 Inspect Library
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Right-Aligned Profile Avatar, Notifications & Primary CTA -->
+      <div class="header-actions">
+        <!-- Quick Role Switcher for Jury / Presentation -->
+        <div class="demo-role-wrapper">
+          <select id="quickRoleSelect" class="role-switcher-select" onchange="handleQuickRoleChange(this.value)" title="Quick role switch">
+            <option value="student">👨‍🎓 Student</option>
+            <option value="teacher">👨‍🏫 Teacher</option>
+            <option value="admin">🛡️ Admin</option>
+          </select>
+        </div>
+
+        <!-- Notifications Bell Button -->
+        <button class="btn-icon-nav" id="btnNotifications" onclick="showToast('You have 2 new study material notifications.')" title="Notifications">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span class="notification-indicator"></span>
+        </button>
+
+        <!-- Primary CTA Button: "Offer a Skill" -->
+        <button class="btn-primary-cta" onclick="openModal('postSkillModal')" title="Offer a skill for peer exchange">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          <span>Offer a Skill</span>
+        </button>
+
+        <!-- User Profile Pill -->
+        <div class="user-profile-badge" onclick="openAuthModal('login')" title="Click to Switch User / Account">
+          <div class="user-avatar-small" id="headerUserAvatar">👨‍🎓</div>
+          <div class="user-info-text">
+            <span class="user-name-label" id="headerUserName">Alex Sharma</span>
+            <span class="user-role-label" id="headerUserRole">STUDENT</span>
+          </div>
+        </div>
+
+        <!-- Pitch Deck Modal Trigger -->
+        <button class="btn-deck" onclick="openDeckModal()" title="View 7-Slide Hackathon Presentation">
+          📊 Deck
+        </button>
+
+        <!-- Logout / Sign In Button -->
+        <button class="btn-logout" onclick="handleLogout()" title="Account sign-in / sign-out">
+          Sign In
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       3. Hero Section & Horizontal Category Chips Bar (padding: 2.5rem 0)
+       ===================================================================== -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-pill">
+          <span class="hero-pill-dot"></span>
+          Campus Learning & Skill Exchange Platform
+        </div>
+        <h1 class="hero-title">
+          Exchange Skills & Access <span class="hero-title-accent">Verified Study Notes</span>
+        </h1>
+        <p class="hero-desc">
+          Access faculty-verified notes, filter by department and semester, and connect with fellow students for collaborative 1-on-1 peer skill swaps.
+        </p>
+
+        <!-- Clean Search Bar & Horizontal Category Chips -->
+        <div class="hero-search-wrapper">
+          <div class="hero-search-bar">
+            <svg class="hero-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="heroSearchInput" class="hero-search-input" placeholder="Search DSA, Operating Systems, Machine Learning, Python...">
+            <button class="hero-search-btn" id="heroSearchBtn">
+              <span>Search</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+          </div>
+
+          <!-- Horizontal Category Chips -->
+          <div class="hero-category-chips">
+            <span class="category-chips-label">Popular:</span>
+            <button class="category-chip" onclick="handleHeroChipSearch('Data Structures')">Data Structures</button>
+            <button class="category-chip" onclick="handleHeroChipSearch('Operating Systems')">Operating Systems</button>
+            <button class="category-chip" onclick="handleHeroChipSearch('DBMS')">DBMS</button>
+            <button class="category-chip" onclick="handleHeroChipSearch('Machine Learning')">Machine Learning</button>
+            <button class="category-chip" onclick="handleHeroChipSearch('Python')">Python</button>
+            <button class="category-chip" onclick="handleHeroChipSearch('React')">React</button>
+          </div>
+        </div>
+
+        <!-- Scannable Metrics Strip -->
+        <div class="hero-metrics">
+          <div class="metric-item">
+            <div class="metric-number" id="metricNoteCount">8+</div>
+            <div class="metric-label">Verified Notes</div>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-item">
+            <div class="metric-number" id="metricDownloadCount">2,274+</div>
+            <div class="metric-label">Downloads</div>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-item">
+            <div class="metric-number" id="metricViewCount">7,880+</div>
+            <div class="metric-label">Study Views</div>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-item">
+            <div class="metric-number" id="metricDeptCount">6</div>
+            <div class="metric-label">Departments</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       4. Main Dashboards & Strict Responsive Grid Layout
+       ===================================================================== -->
+  <main class="main-content">
+
+    <!-- ===================================================================
+         VIEW 1: STUDENT DASHBOARD
+         =================================================================== -->
+    <!-- View 1.1: Study Material Library -->
+    <section id="view-student-library" class="view-section active">
+      <!-- Profile Welcome Bar -->
+      <div class="dashboard-user-bar">
+        <div class="user-badge-left">
+          <div class="user-big-avatar" id="studentProfileAvatar">👨‍🎓</div>
+          <div class="user-big-meta">
+            <h3>
+              Welcome, <span id="studentProfileName">Alex Sharma</span>
+              <span class="role-tag-pill student">Student</span>
+            </h3>
+            <p id="studentProfileDept">Computer Science & Engineering • Semester 4</p>
+          </div>
+        </div>
+        <div class="dashboard-quick-stats">
+          <div class="quick-stat-item">
+            <div class="quick-stat-val" style="color:var(--brand-primary);">4th</div>
+            <div class="quick-stat-lbl">Semester</div>
+          </div>
+          <div class="quick-stat-item">
+            <div class="quick-stat-val" style="color:var(--success);" id="studentBookmarkCountStat">2</div>
+            <div class="quick-stat-lbl">Saved Notes</div>
+          </div>
+          <div class="quick-stat-item">
+            <div class="quick-stat-val" style="color:var(--brand-indigo);">100%</div>
+            <div class="quick-stat-lbl">Verified Content</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title-group">
+          <h2>📚 Study Material Library</h2>
+          <p>Explore organized lecture notes, presentations, and exam guides verified by faculty members.</p>
+        </div>
+      </div>
+
+      <!-- Smart Filter & Search Box -->
+      <div class="filter-card">
+        <div class="search-input-wrapper">
+          <span class="search-icon-inside">🔍</span>
+          <input type="text" id="mainSearchInput" class="main-search-input" placeholder="Search notes by subject, topic, keywords, or faculty name... (Press Ctrl + K)">
+        </div>
+
+        <div class="filter-grid">
+          <!-- Department Select -->
+          <select id="filterDept" class="filter-select">
+            <option value="All">All Departments</option>
+            <option value="Computer Science & Engineering">Computer Science (CSE)</option>
+            <option value="Information Technology">Information Technology (IT)</option>
+            <option value="Electronics & Communication">Electronics & Comm (ECE)</option>
+            <option value="Mechanical Engineering">Mechanical Engineering</option>
+            <option value="Civil Engineering">Civil Engineering</option>
+          </select>
+
+          <!-- Semester Select -->
+          <select id="filterSem" class="filter-select">
+            <option value="All">All Semesters</option>
+            <option value="1">Semester 1</option>
+            <option value="2">Semester 2</option>
+            <option value="3">Semester 3</option>
+            <option value="4">Semester 4</option>
+            <option value="5">Semester 5</option>
+            <option value="6">Semester 6</option>
+            <option value="7">Semester 7</option>
+            <option value="8">Semester 8</option>
+          </select>
+
+          <!-- File Type Filter -->
+          <select id="filterType" class="filter-select">
+            <option value="All">All File Types</option>
+            <option value="PDF">PDF Notes</option>
+            <option value="PPT">PPT Presentations</option>
+            <option value="DOCX">DOC Documents</option>
+          </select>
+
+          <!-- Sort Select -->
+          <select id="filterSort" class="filter-select">
+            <option value="latest">Most Recent</option>
+            <option value="downloads">Most Downloaded</option>
+            <option value="views">Most Viewed</option>
+            <option value="rating">Highest Rated</option>
+          </select>
+
+          <!-- Reset Filter Button -->
+          <button id="btnResetFilters" class="btn-reset-filters">
+            ↺ Clear
+          </button>
+        </div>
+
+        <!-- Department Quick Pills -->
+        <div class="dept-pills">
+          <button class="dept-pill active" data-dept="All">All Departments</button>
+          <button class="dept-pill" data-dept="Computer Science & Engineering">Computer Science</button>
+          <button class="dept-pill" data-dept="Information Technology">Information Tech</button>
+          <button class="dept-pill" data-dept="Electronics & Communication">Electronics & Comm</button>
+          <button class="dept-pill" data-dept="Mechanical Engineering">Mechanical</button>
+          <button class="dept-pill" data-dept="Civil Engineering">Civil</button>
+        </div>
+      </div>
+
+      <!-- Results Count Bar -->
+      <div class="results-bar">
+        <div id="resultCountText">Showing <strong>8</strong> verified study materials</div>
+        <div style="font-size:0.8rem; color:var(--text-muted);">Tip: Click 'Preview' to view full sheet contents in-browser.</div>
+      </div>
+
+      <!-- Strict Responsive CSS Grid for Note Cards -->
+      <div class="notes-grid" id="notesGrid">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+    </section>
+
+    <!-- View 1.2: Student Bookmarks -->
+    <section id="view-student-bookmarks" class="view-section">
+      <div class="section-header">
+        <div class="section-title-group">
+          <h2>🔖 Saved & Bookmarked Notes</h2>
+          <p>Quick access to all study materials you saved for upcoming university exams.</p>
+        </div>
+        <button class="btn-card-action" onclick="switchView('student-library')">
+          ← Back to Library
+        </button>
+      </div>
+
+      <div class="notes-grid" id="bookmarksGrid">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- View 1.3: Student Peer SkillSwap Hub -->
+    <section id="view-student-skills" class="view-section">
+      <div class="skill-hub-header">
+        <div>
+          <h3>🤝 Peer SkillSwap Exchange</h3>
+          <p>Share what you know, learn what you need. Connect 1-on-1 for campus study collaborations.</p>
+        </div>
+        <button class="btn-post-skill" onclick="openModal('postSkillModal')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          Post Your Skill Swap Offer
+        </button>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title-group">
+          <h2>Active Peer Skill Offers</h2>
+          <p>Browse skills offered by campus students and propose a mutual exchange session.</p>
+        </div>
+      </div>
+
+      <!-- Strict Responsive CSS Grid for Skill Cards -->
+      <div class="skills-grid" id="skillsGrid">
+        <!-- Rendered dynamically with 3-part layout -->
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         VIEW 2: TEACHER DASHBOARD
+         =================================================================== -->
+    <section id="view-teacher-studio" class="view-section">
+      <!-- Teacher Profile Welcome Bar -->
+      <div class="dashboard-user-bar">
+        <div class="user-badge-left">
+          <div class="user-big-avatar" id="teacherProfileAvatar" style="background:var(--brand-indigo);">👨‍🏫</div>
+          <div class="user-big-meta">
+            <h3>
+              <span id="teacherProfileName">Prof. Sarah Johnson</span>
+              <span class="role-tag-pill teacher">Verified Faculty</span>
+            </h3>
+            <p id="teacherProfileDept">Associate Professor • Computer Science & Engineering</p>
+          </div>
+        </div>
+        <div class="dashboard-quick-stats">
+          <div class="quick-stat-item">
+            <div class="quick-stat-val" style="color:var(--brand-primary);" id="teacherStatNotes">8</div>
+            <div class="quick-stat-lbl">My Notes</div>
+          </div>
+          <div class="quick-stat-item">
+            <div class="quick-stat-val" style="color:var(--success);" id="teacherStatDownloads">2,274</div>
+            <div class="quick-stat-lbl">Student Downloads</div>
+          </div>
+          <div class="quick-stat-item">
+            <div class="quick-stat-val" style="color:var(--brand-indigo);" id="teacherStatViews">7,880</div>
+            <div class="quick-stat-lbl">Read Views</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title-group">
+          <h2>📤 Teacher Studio & Material Upload Hub</h2>
+          <p>Upload new lecture notes, presentation slides, and manage academic resources for students.</p>
+        </div>
+      </div>
+
+      <div class="teacher-grid">
+        <!-- Upload Form -->
+        <div class="teacher-card" id="teacherUploadCard">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;">
+            <h3 style="font-size:1.15rem; font-weight:700; color:var(--text-heading);">Upload New Study Material</h3>
+            <span class="file-badge" style="background:var(--brand-indigo-subtle); color:var(--brand-indigo);">Faculty Portal</span>
+          </div>
+
+          <form id="teacherUploadForm">
+            <div class="form-group">
+              <label class="form-label" for="uploadTitle">Document Title *</label>
+              <input type="text" id="uploadTitle" name="title" class="form-input" placeholder="e.g. Computer Networks: OSI Model & TCP/IP Protocol" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="uploadSubject">Subject *</label>
+                <input type="text" id="uploadSubject" name="subject" class="form-input" placeholder="e.g. Computer Networks" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="uploadTopic">Topic / Chapter</label>
+                <input type="text" id="uploadTopic" name="topic" class="form-input" placeholder="e.g. Unit 3: Transport Layer & Flow Control">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="uploadDept">Department *</label>
+                <select id="uploadDept" name="department" class="form-select" required>
+                  <option value="Computer Science & Engineering">Computer Science & Engineering</option>
+                  <option value="Information Technology">Information Technology</option>
+                  <option value="Electronics & Communication">Electronics & Communication</option>
+                  <option value="Mechanical Engineering">Mechanical Engineering</option>
+                  <option value="Civil Engineering">Civil Engineering</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="uploadSem">Semester *</label>
+                <select id="uploadSem" name="semester" class="form-select" required>
+                  <option value="1">Semester 1</option>
+                  <option value="2">Semester 2</option>
+                  <option value="3">Semester 3</option>
+                  <option value="4">Semester 4</option>
+                  <option value="5" selected>Semester 5</option>
+                  <option value="6">Semester 6</option>
+                  <option value="7">Semester 7</option>
+                  <option value="8">Semester 8</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Attach File (PDF, PPT, PPTX, DOCX, TXT) *</label>
+              <div class="dropzone" id="uploadDropzone">
+                <div style="font-size:2rem; margin-bottom:8px;">📁</div>
+                <div style="font-size:0.875rem; font-weight:600; color:var(--text-heading);">Drag & drop lecture notes here or click to browse</div>
+                <div style="font-size:0.75rem; color:var(--text-muted); margin-top:4px;">Supported: PDF, PPT, DOCX (Max 50MB)</div>
+                <input type="file" id="uploadFileInput" name="file" class="dropzone-input" accept=".pdf,.ppt,.pptx,.doc,.docx,.txt">
+              </div>
+              <div class="file-selected-pill" id="fileSelectedPill">
+                <span>📎 Selected:</span>
+                <span id="selectedFileName">file.pdf</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="uploadDesc">Summary / Core Concepts for Students</label>
+              <textarea id="uploadDesc" name="description" class="form-textarea" placeholder="Include important derivations, formula cheatsheet, or topics covered in this lecture note..."></textarea>
+            </div>
+
+            <button type="submit" id="btnSubmitUpload" class="btn-upload-submit">
+              📤 Publish to Campus Library
+            </button>
+          </form>
+        </div>
+
+        <!-- Teacher's Uploaded Materials Management Table -->
+        <div class="teacher-card" id="view-teacher-published">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+            <h3 style="font-size:1.1rem; font-weight:700; color:var(--text-heading);">My Published Study Materials</h3>
+            <span style="font-size:0.75rem; color:var(--text-muted);">Live repository management</span>
+          </div>
+
+          <div class="teacher-table-wrapper">
+            <table class="teacher-table">
+              <thead>
+                <tr>
+                  <th>Title & Subject</th>
+                  <th>Dept</th>
+                  <th>Type</th>
+                  <th>Downloads</th>
+                  <th>Views</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="teacherTableBody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         VIEW 3: ADMIN DASHBOARD
+         =================================================================== -->
+    <section id="view-admin-dashboard" class="view-section">
+      <!-- Admin Profile Welcome Bar -->
+      <div class="dashboard-user-bar">
+        <div class="user-badge-left">
+          <div class="user-big-avatar" id="adminProfileAvatar" style="background:var(--brand-primary);">🛡️</div>
+          <div class="user-big-meta">
+            <h3>
+              <span id="adminProfileName">Dr. Arthur Vance</span>
+              <span class="role-tag-pill admin">Campus Administrator</span>
+            </h3>
+            <p id="adminProfileDept">Dean of Academic Affairs • Campus Oversight & Moderation</p>
+          </div>
+        </div>
+        <div class="dashboard-quick-stats">
+          <div class="quick-stat-item">
+            <div class="quick-stat-val" style="color:var(--brand-primary);">Active</div>
+            <div class="quick-stat-lbl">System Status</div>
+          </div>
+          <div class="quick-stat-item">
+            <div class="quick-stat-val" style="color:var(--danger);" id="adminPendingStat">0</div>
+            <div class="quick-stat-lbl">Reports Pending</div>
+          </div>
+          <div class="quick-stat-item">
+            <div class="quick-stat-val" style="color:var(--success);">5</div>
+            <div class="quick-stat-lbl">Colleges/Depts</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Admin Top Metrics Grid -->
+      <div class="admin-metrics-grid">
+        <div class="admin-metric-card">
+          <div class="title">Total Students</div>
+          <div class="num" id="adminStatStudents">540</div>
+        </div>
+        <div class="admin-metric-card accent-green">
+          <div class="title">Faculty Members</div>
+          <div class="num" id="adminStatTeachers">48</div>
+        </div>
+        <div class="admin-metric-card accent-purple">
+          <div class="title">Published Notes</div>
+          <div class="num" id="adminStatNotes">8</div>
+        </div>
+        <div class="admin-metric-card accent-amber">
+          <div class="title">Total Downloads</div>
+          <div class="num" id="adminStatDownloads">2,274</div>
+        </div>
+        <div class="admin-metric-card accent-red">
+          <div class="title">Flagged Reports</div>
+          <div class="num" id="adminStatReports">0</div>
+        </div>
+      </div>
+
+      <!-- Admin 2-Column Layout -->
+      <div class="admin-layout-grid">
+        <!-- User Management Panel -->
+        <div class="admin-panel-card">
+          <div class="admin-panel-header">
+            <h3>👥 Campus User Management</h3>
+            <div style="font-size:0.75rem; color:var(--text-muted);">Faculty verification & status</div>
+          </div>
+
+          <div class="teacher-table-wrapper">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>User & Email</th>
+                  <th>Role</th>
+                  <th>Department</th>
+                  <th>Status</th>
+                  <th>Faculty Verified</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="adminUsersTableBody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Recent Activity Feed Panel -->
+        <div class="admin-panel-card">
+          <div class="admin-panel-header">
+            <h3>⚡ Platform Activity Logs</h3>
+            <span style="font-size:0.75rem; color:var(--text-muted);">Live audit trail</span>
+          </div>
+
+          <div class="activity-feed-list" id="adminActivityList">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Moderation & Reports Panel -->
+      <div class="admin-panel-card">
+        <div class="admin-panel-header">
+          <div>
+            <h3>🚩 Content Moderation & Quality Reports</h3>
+            <p style="font-size:0.8rem; color:var(--text-muted); margin-top:2px;">
+              Maintaining Academic Content Quality & Compliance Standards.
+            </p>
+          </div>
+          <span class="file-badge" style="background:var(--danger-bg); color:var(--danger);">Moderation Hub</span>
+        </div>
+
+        <div class="teacher-table-wrapper">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Reported Note</th>
+                <th>Reason / Issue</th>
+                <th>Reported By</th>
+                <th>Status</th>
+                <th>Resolution Action</th>
+              </tr>
+            </thead>
+            <tbody id="adminReportsTableBody">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================================
+       Dedicated Authentication Modal (Sign In / Register + 1-Click Demo)
+       ===================================================================== -->
+  <div class="auth-overlay" id="authModal">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div style="font-size:2rem; margin-bottom:6px;">🎓</div>
+        <h2>SkillSwap Campus</h2>
+        <p>Learn Skills. Share Knowledge. Grow Together.</p>
+      </div>
+
+      <div class="auth-tabs">
+        <button class="auth-tab-btn active" id="tabBtnLogin" onclick="switchAuthTab('login')">Sign In</button>
+        <button class="auth-tab-btn" id="tabBtnRegister" onclick="switchAuthTab('register')">Create Account</button>
+      </div>
+
+      <div class="auth-body">
+        <!-- 1-Click Fast Demo Login for Presentation / Judges -->
+        <div class="quick-demo-pills-box">
+          <div class="quick-demo-label">
+            ⚡ 1-Click Presentation Fast Login:
+          </div>
+          <div class="quick-demo-grid">
+            <button class="btn-demo-login" onclick="quickLoginAs('student')">
+              👨‍🎓 Student<br><span style="font-size:0.68rem; font-weight:500;">Alex Sharma</span>
+            </button>
+            <button class="btn-demo-login" onclick="quickLoginAs('teacher')">
+              👨‍🏫 Teacher<br><span style="font-size:0.68rem; font-weight:500;">Prof. Johnson</span>
+            </button>
+            <button class="btn-demo-login" onclick="quickLoginAs('admin')">
+              🛡️ Admin<br><span style="font-size:0.68rem; font-weight:500;">Dr. Vance</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="auth-divider">
+          <span>Or with credentials</span>
+        </div>
+
+        <!-- Login Form -->
+        <form id="loginForm">
+          <div class="form-group">
+            <label class="form-label">Campus Email</label>
+            <input type="email" id="loginEmail" class="form-input" placeholder="student@skillswap.edu" value="student@skillswap.edu" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <input type="password" id="loginPassword" class="form-input" placeholder="••••••••" value="password123" required>
+          </div>
+          <button type="submit" class="btn-upload-submit" style="margin-top:16px;">
+            Sign In to Dashboard
+          </button>
+        </form>
+
+        <!-- Register Form -->
+        <form id="registerForm" style="display:none;">
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            <input type="text" id="regName" class="form-input" placeholder="e.g. Maya Iyer" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Campus Email *</label>
+            <input type="email" id="regEmail" class="form-input" placeholder="maya@campus.edu" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password *</label>
+            <input type="password" id="regPassword" class="form-input" placeholder="Create password" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Role *</label>
+              <select id="regRole" class="form-select" required onchange="document.getElementById('regSemGroup').style.display = this.value === 'student' ? 'block' : 'none';">
+                <option value="student">Student</option>
+                <option value="teacher">Teacher / Faculty</option>
+                <option value="admin">Administrator</option>
+              </select>
+            </div>
+            <div class="form-group" id="regSemGroup">
+              <label class="form-label">Semester</label>
+              <select id="regSem" class="form-select">
+                <option value="1">Sem 1</option>
+                <option value="2">Sem 2</option>
+                <option value="3">Sem 3</option>
+                <option value="4" selected>Sem 4</option>
+                <option value="5">Sem 5</option>
+                <option value="6">Sem 6</option>
+                <option value="7">Sem 7</option>
+                <option value="8">Sem 8</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Department *</label>
+            <select id="regDept" class="form-select" required>
+              <option value="Computer Science & Engineering">Computer Science & Engineering</option>
+              <option value="Information Technology">Information Technology</option>
+              <option value="Electronics & Communication">Electronics & Communication</option>
+              <option value="Mechanical Engineering">Mechanical Engineering</option>
+              <option value="Civil Engineering">Civil Engineering</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-upload-submit" style="margin-top:16px;">
+            Create Campus Account
+          </button>
+        </form>
+
+        <div style="text-align:center; margin-top:16px;">
+          <button type="button" class="btn-card-action" onclick="closeAuthModal()" style="font-size:0.78rem;">
+            Continue as Guest / Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       Document Preview Reader Modal
+       ===================================================================== -->
+  <div class="modal-overlay" id="previewModal">
+    <div class="preview-modal-box">
+      <div class="preview-header">
+        <div class="preview-title-group">
+          <div class="preview-title" id="previewNoteTitle">Data Structures & Algorithms Notes</div>
+          <div class="preview-meta" id="previewNoteMeta">
+            <span>Computer Science</span> • <span>Sem 3</span>
+          </div>
+        </div>
+        <button class="preview-btn-close" onclick="closePreviewModal()" title="Close preview">✕</button>
+      </div>
+
+      <div class="preview-toolbar">
+        <div class="preview-page-controls">
+          <button class="page-btn" id="previewPrevPageBtn" onclick="prevPreviewPage()">◀ Previous Page</button>
+          <span id="previewPageIndicator" style="font-weight:600; color:var(--text-heading);">Page 1 of 2</span>
+          <button class="page-btn" id="previewNextPageBtn" onclick="nextPreviewPage()">Next Page ▶</button>
+        </div>
+        <div>
+          <span style="color:var(--success); font-weight:600; font-size:0.75rem;">✔ Verified Faculty Document</span>
+        </div>
+      </div>
+
+      <div class="preview-body">
+        <div class="preview-sheet">
+          <h3 class="preview-sheet-title" id="previewSheetTitle">Chapter 1</h3>
+          <div class="preview-sheet-text" id="previewSheetText">Loading content...</div>
+        </div>
+      </div>
+
+      <div class="preview-footer">
+        <div style="font-size:0.8rem; color:var(--text-muted);">
+          In-Browser Document Reader
+        </div>
+        <div style="display:flex; gap:10px;">
+          <button class="btn-card-action" onclick="closePreviewModal()">Close</button>
+          <button class="btn-preview-download-main" id="btnPreviewDownload">
+            📥 Download Full Document
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       Hack Fest'26 Interactive 7-Slide Pitch Deck Modal
+       ===================================================================== -->
+  <div class="modal-overlay" id="deckModal">
+    <div class="deck-modal-box">
+      <div class="deck-header">
+        <div class="deck-logo-group">
+          <div style="font-size:1.3rem;">🎓</div>
+          <strong style="color:#FFFFFF;">SkillSwap Campus</strong>
+          <span class="deck-logo-tag">Hack Fest'26 Deck</span>
+        </div>
+        <button class="preview-btn-close" onclick="closeDeckModal()" title="Close Deck">✕</button>
+      </div>
+
+      <div class="deck-content" id="deckSlideContent">
+        <!-- Rendered dynamically by slides.js -->
+      </div>
+
+      <div class="deck-footer">
+        <div class="deck-pagination-chips" id="deckDots">
+          <!-- Dots rendered by slides.js -->
+        </div>
+
+        <div style="color:#94A3B8; font-size:0.85rem;" id="deckCounter">
+          Slide 1 of 7
+        </div>
+
+        <div class="deck-nav-btns">
+          <button class="btn-deck-nav" id="deckPrevBtn" onclick="prevSlide()">◀ Previous</button>
+          <button class="btn-deck-nav" id="deckNextBtn" onclick="nextSlide()">Next ▶</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       Post Skill Swap Modal (Offer a Skill CTA)
+       ===================================================================== -->
+  <div class="modal-overlay" id="postSkillModal">
+    <div class="preview-modal-box" style="max-width:540px;">
+      <div class="preview-header">
+        <h3 style="font-size:1.1rem; color:#FFFFFF;">🤝 Offer a Skill Swap</h3>
+        <button class="preview-btn-close" onclick="closeModal('postSkillModal')">✕</button>
+      </div>
+      <form id="postSkillForm" style="padding:22px;">
+        <div class="form-group">
+          <label class="form-label">Your Name *</label>
+          <input type="text" id="skillStudentName" class="form-input" placeholder="e.g. Rahul Verma" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Department</label>
+            <input type="text" id="skillDept" class="form-input" placeholder="e.g. Computer Science">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Semester</label>
+            <input type="number" id="skillSem" class="form-input" value="4" min="1" max="8">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">What Skill Can You Offer / Teach? *</label>
+          <input type="text" id="skillOffering" class="form-input" placeholder="e.g. Python, Machine Learning, Git" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">What Skill Do You Want to Learn? *</label>
+          <input type="text" id="skillSeeking" class="form-input" placeholder="e.g. React, UI/UX in Figma, DSA" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Preferred Study Location / Mode</label>
+          <input type="text" id="skillMode" class="form-input" placeholder="e.g. Campus Library / Google Meet">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Brief Note</label>
+          <textarea id="skillDesc" class="form-textarea" placeholder="Tell peers about your background and study availability..."></textarea>
+        </div>
+        <button type="submit" class="btn-upload-submit">
+          Publish Skill Swap Listing
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       Skill Swap Request Modal (Propose Peer Study Session)
+       ===================================================================== -->
+  <div class="modal-overlay" id="skillRequestModal">
+    <div class="preview-modal-box" style="max-width:480px;">
+      <div class="preview-header">
+        <h3 style="font-size:1.05rem; color:#FFFFFF;">Propose Peer Study Session</h3>
+        <button class="preview-btn-close" onclick="closeModal('skillRequestModal')">✕</button>
+      </div>
+      <div style="padding:22px;">
+        <p style="font-size:0.875rem; color:var(--text-body); margin-bottom:14px;">
+          Send an invitation to <strong id="skillRequestTargetName" style="color:var(--text-heading);">Peer Student</strong> to start your peer knowledge exchange.
+        </p>
+        <div class="form-group">
+          <label class="form-label">Your Message / Availability</label>
+          <textarea class="form-textarea" placeholder="Hi! I'd love to swap skills with you. Let's connect this Friday at the campus library or online."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Your Campus Email or Discord</label>
+          <input type="text" class="form-input" placeholder="alex.sharma@campus.edu">
+        </div>
+        <button class="btn-upload-submit" onclick="sendSkillProposal()">
+          Send Study Proposal
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       Toast Notifications Container
+       ===================================================================== -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- =====================================================================
+       Minimal Modern SaaS Footer
+       ===================================================================== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-brand-title">
+          <svg width="22" height="22" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="34" height="34" rx="8" fill="#4F46E5"/>
+            <path d="M17 9L7.5 14L17 19L26.5 14L17 9Z" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M11 16V21.5C11 23.5 13.68 25 17 25C20.32 25 23 23.5 23 21.5V16" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          SkillSwap Campus
+        </div>
+        <p>Learn Skills. Share Knowledge. Grow Together.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#" onclick="quickLoginAs('student'); return false;">Student Portal</a>
+        <a href="#" onclick="quickLoginAs('teacher'); return false;">Teacher Studio</a>
+        <a href="#" onclick="quickLoginAs('admin'); return false;">Admin Oversight</a>
+        <a href="#" onclick="openDeckModal(); return false;">Pitch Deck</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>Developed for Hack Fest'26 • Role-Based Dashboards for Students, Teachers & Admins</div>
+      <div>Deep Slate Blue & Indigo Theme • Modern SaaS Standard</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/slides.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/intro.js"></script>
+</body>
+</html>

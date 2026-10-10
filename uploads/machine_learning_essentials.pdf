@@ -1,0 +1,30 @@
+%PDF-1.4
+1 0 obj
+<< /Title (Machine Learning Essentials) /Author (Dr. David Chen) >>
+endobj
+2 0 obj
+<< /Type /Catalog /Pages 3 0 R >>
+endobj
+3 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 612 792] /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 240 >>
+stream
+BT
+/F1 18 Tf
+50 720 Td (SkillSwap Campus - Machine Learning Foundations) Tj
+/F1 12 Tf
+0 -30 Td (Author: Dr. David Chen | AI Lab Head) Tj
+0 -20 Td (Linear Regression, Logistic Regression, SVM, Random Forests) Tj
+0 -25 Td (Gradient Descent formula: theta := theta - alpha * grad(J)) Tj
+0 -20 Td (Cross Validation, Precision, Recall, F1-Score, ROC-AUC) Tj
+ET
+endstream
+endobj
+trailer
+<< /Size 6 /Root 2 0 R >>
+%%EOF

@@ -1,0 +1,35 @@
+%PDF-1.4
+% SkillSwap Campus Verified Study Material
+1 0 obj
+<< /Title (Operating Systems Process & Memory Management)
+   /Author (Prof. Alex Rivera)
+   /Subject (Computer Science Sem 4)
+>>
+endobj
+2 0 obj
+<< /Type /Catalog /Pages 3 0 R >>
+endobj
+3 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 612 792] /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 250 >>
+stream
+BT
+/F1 18 Tf
+50 720 Td (SkillSwap Campus - Operating Systems Lecture Notes) Tj
+/F1 12 Tf
+0 -30 Td (Author: Prof. Alex Rivera | CSE Department) Tj
+0 -20 Td (Topics: CPU Scheduling, Synchronization & Deadlocks) Tj
+0 -25 Td (- Turnaround Time = Completion Time - Arrival Time) Tj
+0 -20 Td (- Banker's Algorithm Safe State Determination) Tj
+0 -20 Td (- Paging, TLB, LRU Page Replacement Policies) Tj
+ET
+endstream
+endobj
+trailer
+<< /Size 6 /Root 2 0 R >>
+%%EOF
